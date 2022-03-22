@@ -9,8 +9,8 @@ module.exports = {
             network_id: '*'
         },
     },
-    contracts_directory: './src/contracts/',
-    contracts_build_directory: './src/truffle_abis',
+    contracts_directory: './contracts/',
+    contracts_build_directory: './truffle_abis',
     compilers: {
         solc: {
             version: '^0.5.0',
