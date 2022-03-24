@@ -58,23 +58,48 @@ contract('DecentralBank', ([owner, customer]) => {
     })
     describe('Yield Farming', () => {
         it('rewards tokens for staking', async () => {
+
             // check investor balance
             let result
             result = await tether.balanceOf(customer)
             assert.equal(result.toString(), tokens('100'), 'customer mock wallet balance before staking')
+            
             // check staking for customer of 100 customers
             await tether.approve(decentralBank.address, tokens('100'), {from: customer})
             await decentralBank.depositTokens(tokens('100'), {from: customer})
+            
             //check updated balance of customer
             result = await tether.balanceOf(customer)
             assert.equal(result.toString(), tokens('0'), 'customer mock wallet balance after staking')
+            
             // check updated balance of decentral bank
             result = await tether.balanceOf(decentralBank.address)
             assert.equal(result.toString(), tokens('100'), 'decentral bank mock wallet balance after staking from customer')
+            
             // is staking balance
             result = await decentralBank.isStaking(customer)
             assert.equal(result.toString(), 'true', 'customer is staking status after staking')
             
+            // issue tokens
+            await decentralBank.issueTokens({from: owner})
+            
+            // ensure only the owner can issue tokens
+            await decentralBank.issueTokens({from: customer}).should.be.rejected;
+            
+            // unstake tokens
+            await decentralBank.unstakeTokens({from: customer})
+            
+            // check unstaking balances
+            result = await tether.balanceOf(customer)
+            assert.equal(result.toString(), tokens('100'), 'customer mock wallet balance after unstaking')
+            
+            // check updated balance of decentral bank
+            result = await tether.balanceOf(decentralBank.address)
+            assert.equal(result.toString(), tokens('0'), 'decentral bank mock wallet balance after unstaking from customer')
+            
+            // is staking balance
+            result = await decentralBank.isStaking(customer)
+            assert.equal(result.toString(), 'false', 'customer is staking status after staking')
         })
     })
 })
