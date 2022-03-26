@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import Airdrop from './Airdrop';
 
 function Form() {
   return (
@@ -23,8 +24,8 @@ function Form() {
             <input className='stake-input'></input>
             <button>Deposit</button>
             <button>Withdraw</button>
-
         </div>
+        <Airdrop />
     </div>
   );
 }

@@ -16,11 +16,11 @@ body {
     text-align: center;
 }
 
-/* FORM */
+/* TABLET */
 
 .tablet {
     background: #000F98;
-    max-width: 750px;
+    max-width: 500px;
     margin: 0 auto 45px;
     padding: 1px 15px 10px;
     color: #fff;
@@ -76,5 +76,15 @@ body {
     margin: 10px auto 25px;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
+}
+
+.airdrop {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.airdrop p {
+    color: #00FFF0;
+    font-size: 1.5em;
 }
 
