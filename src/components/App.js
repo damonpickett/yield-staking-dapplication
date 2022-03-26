@@ -1,10 +1,12 @@
 import React from 'react';
 import '../App.css';
+import Form from './Form';
 
 function App() {
   return (
     <div className="App">
-      <h1>Yield Staking Dapplication</h1>
+        <h1 className='app-title'>Yield Staking Dapplication</h1>
+      <Form />
     </div>
   );
 }

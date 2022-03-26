@@ -1,16 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* UNIVERSAL */
 
-* {
+body {
     background: #010047;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    font-size: 1.09em;
-    padding: 0 5px 0 5px;
+    padding: 0 20px;
 }
 
-.App h1 {
+.app-title {
     color: #00FFF0;
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 25px 0 25px;
+    text-align: center;
+}
+
+/* FORM */
+
+.tablet {
+    background: #000F98;
+    max-width: 750px;
+    margin: 0 auto 45px;
+    padding: 1px 15px 10px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.account-info {
+
+}
+
+.form-section {
+
+}
+
+.form-section h2 {
+    font-weight: 300;
+}
+
+.address {
+    font-size: 8px;
+    color: #00FFF0;
+}
+
+.balance {
+    color: #00FFF0;
+}
+
+.account-action {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.account-action h2 {
+    display: inline;
+}
+
+.account-action input {
+    max-width: 100px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    padding: 7px 15px;
+}
+
+.account-action button {
+    background-color: #1D30DB;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    color: #fff;
+    padding: 15px 10px;
+    width: 150px;
+    margin: 10px auto 25px;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
 }
 
