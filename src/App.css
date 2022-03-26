@@ -25,6 +25,7 @@ body {
     padding: 1px 15px 10px;
     color: #fff;
     border-radius: 10px;
+    border: 2px solid rgb(252, 0, 210)
 }
 
 .account-info {
