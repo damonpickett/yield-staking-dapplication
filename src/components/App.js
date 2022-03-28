@@ -14,6 +14,12 @@ function App() {
   // connect wallet before component mounts
   useEffect(() => {
 
+    async function uponLoad() {
+      await loadWeb3();
+      await loadBlockChainData();
+    }
+    uponLoad();
+
     async function loadWeb3() {
       if(window.ethereum) {
         window.web3 = new Web3(window.ethereum)
@@ -24,30 +30,27 @@ function App() {
         window.alert('No wallet detected.')
       }
     }
-    loadWeb3();
 
     async function loadBlockChainData() {
       // Get account from metamask
       const web3 = window.web3
-      const accounts = await web3.eth.getAccounts()
-      setAccount(accounts[0])
+      const account = await web3.eth.getAccounts()
+      setAccount(account)
       const networkId = await web3.eth.net.getId()
+      console.log(account)
 
       // Load tether tokens
       const tetherData = Tether.networks[networkId]
       if(tetherData) {
         const tetherABI = new web3.eth.Contract(Tether.abi, tetherData.address)
-        await setTether(tetherABI)
-        // let tetherBalance = await tetherABI.methods.balanceOf(tether).call()
-        console.log(tether)
+        setTether(tetherABI)
+        let tetherBalance = await tetherABI.methods.balanceOf(account.toString()).call()
+        console.log(account)
       }
 
       setLoading(false);
     }
-    loadBlockChainData();
   }, [])
-
-  console.log(tether)
 
   return (
     <div className="App">
