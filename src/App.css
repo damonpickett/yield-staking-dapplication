@@ -16,6 +16,11 @@ body {
     text-align: center;
 }
 
+.loading {
+    color: #00FFF0;
+    text-align: center;
+}
+
 /* TABLET */
 
 .tablet {
@@ -41,8 +46,8 @@ body {
 }
 
 .address {
-    font-size: 8px;
     color: #00FFF0;
+    font-size: 11px;
 }
 
 .balance {
@@ -68,7 +73,7 @@ body {
 
 .account-action button {
     background-color: #1D30DB;
-    border: none;
+    border: 1px solid #fff;
     border-radius: 10px;
     display: block;
     color: #fff;
