@@ -11,6 +11,10 @@ function Form() {
                 <p className='address'>eb9dc0d2c22cfa5d212144fff2635821fba9f8b8db322f8009a7c83540816460</p>
             </div>
             <div className='form-section'>
+                <h2>Account Balance:</h2>
+                <h2 className='balance'>0 mUSDT</h2>
+            </div>
+            <div className='form-section'>
                 <h2>Staking Balance:</h2>
                 <h2 className='balance'>0 mUSDT</h2>
             </div>
