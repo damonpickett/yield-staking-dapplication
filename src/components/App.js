@@ -4,17 +4,18 @@ import Web3 from 'web3';
 import Form from './Form';
 import Tether from '../truffle_abis/Tether.json';
 import RWD from '../truffle_abis/RWD.json';
+import DecentralBank from '../truffle_abis/DecentralBank.json'
 
 function App() {
+
   const [loading, setLoading] = useState(true);
   const [account, setAccount] = useState('0x0');
-  const [accountBalance, setAccountBalance] = useState('0');
   const [tetherContract, setTetherContract] = useState({});
   const [rwdContract, setRWDContract] = useState({});
+  const [decentralBankContract, setDecentralBankContract] = useState({});
   const [tetherAccountBalance, setTetherAccountBalance] = useState('0');
   const [rwdAccountBalance, setRWDAccountBalance] = useState('0')
-  
-
+  const [stakingAccountBalance, setStakingAccountBalance] = useState('0')
 
   // connect wallet before component mounts
   useEffect(() => {
@@ -59,11 +60,34 @@ function App() {
         setRWDContract(rwdABI)
         let rwdBalance = await rwdABI.methods.balanceOf(account.toString()).call()
         setRWDAccountBalance(rwdBalance)
+      } else {
+        window.alert('Error! Reward token contract not deployed - no detected network')
       }
-      
+
+      // Load Decentral Bank contract
+      const decentralBankData = DecentralBank.networks[networkId]
+      if(decentralBankData) {
+        const decentralBankABI = new web3.eth.Contract(DecentralBank.abi, decentralBankData.address)
+        setDecentralBankContract(decentralBankABI)
+        let stakingBalance = await decentralBankABI.methods.stakingBalance(account.toString()).call()
+        setStakingAccountBalance(stakingBalance)
+      } else {
+        window.alert('Error! Reward token contract not deployed - no detected network')
+      }
+
       setLoading(false);
     }
   }, [])
+
+  // Staking function
+  function stakeTokens(amount) {
+    setLoading(true)
+    // tetherContract.methods.approve(decentralBankContract._address, amount).send({from: account}).on('transactionHash', (hash) => {
+    //   decentralBankContract.methods.depositTokens(amount).send({from: account}).on('transactionHash', (hash) => {
+    //     setLoading(false)
+    //   })
+    // })
+  }
   
   return (
     <div className="App">
@@ -71,7 +95,8 @@ function App() {
       {loading ? <p className='loading'>Loading, please wait...</p> 
       : <Form 
       account={account} 
-      accountBalance={accountBalance}/>
+      tetherAccountBalance={tetherAccountBalance}
+      stakeTokens={stakeTokens}/>
       }
     </div>
   );
