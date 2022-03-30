@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Airdrop from './Airdrop';
+import Web3 from 'web3';
 
 function Form(props) {
   return (
@@ -12,7 +13,7 @@ function Form(props) {
             </div>
             <div className='form-section'>
                 <h2>Account Balance:</h2>
-                <h2 className='balance'>{props.accountBalance} mUSDT</h2>
+                <h2 className='balance'>{window.web3.utils.fromWei(props.accountBalance)} mUSDT</h2>
             </div>
             <div className='form-section'>
                 <h2>Staking Balance:</h2>
