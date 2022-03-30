@@ -82,11 +82,18 @@ function App() {
   // Staking function
   function stakeTokens(amount) {
     setLoading(true)
-    // tetherContract.methods.approve(decentralBankContract._address, amount).send({from: account}).on('transactionHash', (hash) => {
-    //   decentralBankContract.methods.depositTokens(amount).send({from: account}).on('transactionHash', (hash) => {
-    //     setLoading(false)
-    //   })
-    // })
+    tetherContract.methods.approve(decentralBankContract._address, amount).send({from: account[0]}).on('transactionHash', (hash) => {
+      decentralBankContract.methods.depositTokens(amount).send({from: account[0]}).on('transactionHash', (hash) => {
+      setLoading(false)
+      })
+    })
+  }
+
+  function unstakeTokens() {
+    setLoading(true)
+    decentralBankContract.methods.unstakeTokens().send({from: account[0]}).on('transactionHash', (hash) => {
+      setLoading(false)
+    })
   }
   
   return (
@@ -96,7 +103,10 @@ function App() {
       : <Form 
       account={account} 
       tetherAccountBalance={tetherAccountBalance}
-      stakeTokens={stakeTokens}/>
+      rwdAccountBalance={rwdAccountBalance}
+      stakingAccountBalance={stakingAccountBalance}
+      stakeTokens={stakeTokens}
+      unstakeTokens={unstakeTokens}/>
       }
     </div>
   );

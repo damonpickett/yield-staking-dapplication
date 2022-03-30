@@ -25,18 +25,29 @@ function Form(props) {
             </div>
             <div className='form-section'>
                 <h2>Staking Balance:</h2>
-                <h2 className='balance'>0 mUSDT</h2>
+                <h2 className='balance'>{window.web3.utils.fromWei(props.stakingAccountBalance)} mUSDT</h2>
             </div>
             <div className='form-section'>
                 <h2>Reward Balance:</h2>
-                <h2 className='balance'>0 mUSDT</h2>
+                <h2 className='balance'>{window.web3.utils.fromWei(props.rwdAccountBalance)} mUSDT</h2>
             </div>
         </div>
         <div className='account-action'>
-            <h2>Stake Tokens:</h2>
-            <input className='stake-input' onChange={handleChange}></input>
-            <button onClick={props.stakeTokens(amount)}>Deposit</button>
-            <button>Withdraw</button>
+            <form onSubmit={(event) => {
+                event.preventDefault()
+                props.stakeTokens(amount)
+            }}>
+                <h2>Stake Tokens:</h2>
+                <input className='stake-input' onChange={handleChange}></input>
+                <button type='submit'>Deposit</button>
+                <button type='submit'
+                onClick={(event) => {
+                    event.preventDefault(
+                        props.unstakeTokens()
+                    )
+                }}
+                >Withdraw</button>
+            </form>
         </div>
         <Airdrop />
     </div>
