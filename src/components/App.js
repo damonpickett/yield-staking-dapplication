@@ -95,6 +95,13 @@ function App() {
       setLoading(false)
     })
   }
+
+  // function issueTokens() {
+  //   setLoading(true)
+  //   decentralBankContract.methods.issueTokens().send({from: account[0]}).on('transactionHash', (hash) => {
+  //     setLoading(false)
+  //   })
+  // }
   
   return (
     <div className="App">
@@ -106,7 +113,8 @@ function App() {
       rwdAccountBalance={rwdAccountBalance}
       stakingAccountBalance={stakingAccountBalance}
       stakeTokens={stakeTokens}
-      unstakeTokens={unstakeTokens}/>
+      unstakeTokens={unstakeTokens}
+      />
       }
     </div>
   );

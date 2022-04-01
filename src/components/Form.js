@@ -49,7 +49,7 @@ function Form(props) {
                 >Withdraw</button>
             </form>
         </div>
-        <Airdrop stakingAccountBalance={props.stakingAccountBalance}/>
+        <Airdrop stakingAccountBalance={props.stakingAccountBalance} issueTokens={props.issueTokens}/>
     </div>
   );
 }

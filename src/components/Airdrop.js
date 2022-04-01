@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css';
+import issueRewards from '../../scripts/issue-tokens'
 
 class Airdrop extends Component {
 
@@ -54,12 +55,15 @@ class Airdrop extends Component {
   }
 
   airdropReleaseTokens() {
-      let stakingB = this.props.stakingBalance
+      let stakingB = this.props.stakingAccountBalance
       if(stakingB >= '50000000000000000000') {
         this.startTimer()
       }
       // code for issuing tokens must come here
       // when timer gets to zero, issueTokens from DecentralBank.sol
+      if(this.state.time.m === 0 && this.state.time.s === 0) {
+          issueRewards();
+      }
   }
 
 render() {
