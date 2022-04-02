@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import { tokenToString } from 'typescript';
 import '../App.css';
-import issueRewards from '../../scripts/issue-tokens'
 
 class Airdrop extends Component {
 
@@ -62,7 +62,7 @@ class Airdrop extends Component {
       // code for issuing tokens must come here
       // when timer gets to zero, issueTokens from DecentralBank.sol
       if(this.state.time.m === 0 && this.state.time.s === 0) {
-          issueRewards();
+          this.props.issueTokens();
       }
   }
 
