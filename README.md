@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Yield Staking Dapplication
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the Project
 
-## Available Scripts
+The Yield Staking Dapplication is my first blockchain project. I built it primarily by following a tutorial on Udemy called [Complete DApp - Solidity & React - Blockchain Development](https://www.udemy.com/course/complete-dapp-solidity-react-blockchain-development/). However, I have refactored the front-end to make it more mobile-friendly and to get experience creating my own designs.
 
-In the project directory, you can run:
+![Yield Staking Dapplication](/img/yieldstakingdapp.png)
 
-### `npm start`
+This dapp connects with a user's Ethereum wallet. The user can then enter an amount and click the 'Deposit' button to stake their tokens. If the user changes their mind, they can click the 'Withdraw' button to get their tokens back.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If the user stakes 50 or more tokens, the Airdrop timer is activated and counts down from 20 to 0. At this point the user is supposed to be rewarded for their stake, however, the tutorial intentionally left this functionality out for students to complete on their own. At the time of this writing I have not yet figured out this functionality.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Built With
 
-### `npm test`
+* [React.js](https://reactjs.org/)
+* [Web3.js](https://web3js.readthedocs.io/en/v1.7.1/#)
+* [Mocha.js](https://mochajs.org/)
+* [Chai.js](https://www.chaijs.com/)
+* [Solidity](https://docs.soliditylang.org/en/v0.8.13/#)
+* [Truffle](https://trufflesuite.com/docs/index.html)
+* [Ganache](https://trufflesuite.com/ganache/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Contact
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [Linkedin](https://www.linkedin.com/in/damon-pickett/)
+* [Email](https://www.linkedin.com/in/damon-pickett/) (Please use the Contact Form on my website)

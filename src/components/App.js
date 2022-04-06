@@ -85,6 +85,7 @@ function App() {
     tetherContract.methods.approve(decentralBankContract._address, amount).send({from: account[0]}).on('transactionHash', (hash) => {
       decentralBankContract.methods.depositTokens(amount).send({from: account[0]}).on('transactionHash', (hash) => {
       setLoading(false)
+      console.log(account[0])
       })
     })
   }
@@ -97,9 +98,12 @@ function App() {
   }
 
   function issueTokens() {
-    // setLoading(true)
-    decentralBankContract.methods.issueTokens();
+    setLoading(true)
+    decentralBankContract.methods.issueTokens().send({from: account[0]}).on('transactionHash', (hash) => {
+      setLoading(false)
+    })
   }
+
   
   return (
     <div className="App">
